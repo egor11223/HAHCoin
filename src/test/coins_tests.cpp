@@ -8,7 +8,7 @@
 #include "uint256.h"
 #include "undo.h"
 #include "utilstrencodings.h"
-#include "test/test_mun.h"
+#include "test/test_hah.h"
 #include "validation.h"
 #include "consensus/validation.h"
 
