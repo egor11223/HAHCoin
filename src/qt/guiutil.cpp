@@ -1,5 +1,5 @@
 // Copyright (c) 2011-2015 The Bitcoin Core developers
-// Copyright (c) 2014-2017 The Mun Core developers
+// Copyright (c) 2014-2017 The Hah Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -117,7 +117,7 @@ void setupAddressWidget(QValidatedLineEdit *widget, QWidget *parent)
 #if QT_VERSION >= 0x040700
     // We don't want translators to use own addresses in translations
     // and this is the only place, where this address is supplied.
-    widget->setPlaceholderText(QObject::tr("Enter a Mun address (e.g. %1)").arg("MN7sh43pV9cYbKHLArXxYcaTxPkwYz3Qmm"));
+    widget->setPlaceholderText(QObject::tr("Enter a Hah address (e.g. %1)").arg("MN7sh43pV9cYbKHLArXxYcaTxPkwYz3Qmm"));
 #endif
     widget->setValidator(new BitcoinAddressEntryValidator(parent));
     widget->setCheckValidator(new BitcoinAddressCheckValidator(parent));
@@ -134,8 +134,8 @@ void setupAmountWidget(QLineEdit *widget, QWidget *parent)
 
 bool parseBitcoinURI(const QUrl &uri, SendCoinsRecipient *out)
 {
-    // return if URI is not valid or is no mun: URI
-    if(!uri.isValid() || uri.scheme() != QString("mun"))
+    // return if URI is not valid or is no hah: URI
+    if(!uri.isValid() || uri.scheme() != QString("hah"))
         return false;
 
     SendCoinsRecipient rv;
@@ -184,7 +184,7 @@ bool parseBitcoinURI(const QUrl &uri, SendCoinsRecipient *out)
         {
             if(!i->second.isEmpty())
             {
-                if(!BitcoinUnits::parse(BitcoinUnits::MUN, i->second, &rv.amount))
+                if(!BitcoinUnits::parse(BitcoinUnits::HAH, i->second, &rv.amount))
                 {
                     return false;
                 }
@@ -204,13 +204,13 @@ bool parseBitcoinURI(const QUrl &uri, SendCoinsRecipient *out)
 
 bool parseBitcoinURI(QString uri, SendCoinsRecipient *out)
 {
-    // Convert mun:// to mun:
+    // Convert hah:// to hah:
     //
-    //    Cannot handle this later, because mun:// will cause Qt to see the part after // as host,
+    //    Cannot handle this later, because hah:// will cause Qt to see the part after // as host,
     //    which will lower-case it (and thus invalidate the address).
-    if(uri.startsWith("mun://", Qt::CaseInsensitive))
+    if(uri.startsWith("hah://", Qt::CaseInsensitive))
     {
-        uri.replace(0, 7, "mun:");
+        uri.replace(0, 7, "hah:");
     }
     QUrl uriInstance(uri);
     return parseBitcoinURI(uriInstance, out);
@@ -218,12 +218,12 @@ bool parseBitcoinURI(QString uri, SendCoinsRecipient *out)
 
 QString formatBitcoinURI(const SendCoinsRecipient &info)
 {
-    QString ret = QString("mun:%1").arg(info.address);
+    QString ret = QString("hah:%1").arg(info.address);
     int paramCount = 0;
 
     if (info.amount)
     {
-        ret += QString("?amount=%1").arg(BitcoinUnits::format(BitcoinUnits::MUN, info.amount, false, BitcoinUnits::separatorNever));
+        ret += QString("?amount=%1").arg(BitcoinUnits::format(BitcoinUnits::HAH, info.amount, false, BitcoinUnits::separatorNever));
         paramCount++;
     }
 
@@ -424,7 +424,7 @@ void openConfigfile()
 {
     boost::filesystem::path pathConfig = GetConfigFile();
 
-    /* Open mun.conf with the associated application */
+    /* Open hah.conf with the associated application */
     if (boost::filesystem::exists(pathConfig))
         QDesktopServices::openUrl(QUrl::fromLocalFile(boostPathToQString(pathConfig)));
 }
@@ -634,15 +634,15 @@ boost::filesystem::path static StartupShortcutPath()
 {
     std::string chain = ChainNameFromCommandLine();
     if (chain == CBaseChainParams::MAIN)
-        return GetSpecialFolderPath(CSIDL_STARTUP) / "Mun Core.lnk";
+        return GetSpecialFolderPath(CSIDL_STARTUP) / "Hah Core.lnk";
     if (chain == CBaseChainParams::TESTNET) // Remove this special case when CBaseChainParams::TESTNET = "testnet4"
-        return GetSpecialFolderPath(CSIDL_STARTUP) / "Mun Core (testnet).lnk";
-    return GetSpecialFolderPath(CSIDL_STARTUP) / strprintf("Mun Core (%s).lnk", chain);
+        return GetSpecialFolderPath(CSIDL_STARTUP) / "Hah Core (testnet).lnk";
+    return GetSpecialFolderPath(CSIDL_STARTUP) / strprintf("Hah Core (%s).lnk", chain);
 }
 
 bool GetStartOnSystemStartup()
 {
-    // check for "Mun Core*.lnk"
+    // check for "Hah Core*.lnk"
     return boost::filesystem::exists(StartupShortcutPath());
 }
 
@@ -734,8 +734,8 @@ boost::filesystem::path static GetAutostartFilePath()
 {
     std::string chain = ChainNameFromCommandLine();
     if (chain == CBaseChainParams::MAIN)
-        return GetAutostartDir() / "muncore.desktop";
-    return GetAutostartDir() / strprintf("muncore-%s.lnk", chain);
+        return GetAutostartDir() / "hahcore.desktop";
+    return GetAutostartDir() / strprintf("hahcore-%s.lnk", chain);
 }
 
 bool GetStartOnSystemStartup()
@@ -774,13 +774,13 @@ bool SetStartOnSystemStartup(bool fAutoStart)
         if (!optionFile.good())
             return false;
         std::string chain = ChainNameFromCommandLine();
-        // Write a muncore.desktop file to the autostart directory:
+        // Write a hahcore.desktop file to the autostart directory:
         optionFile << "[Desktop Entry]\n";
         optionFile << "Type=Application\n";
         if (chain == CBaseChainParams::MAIN)
-            optionFile << "Name=Mun Core\n";
+            optionFile << "Name=Hah Core\n";
         else
-            optionFile << strprintf("Name=Mun Core (%s)\n", chain);
+            optionFile << strprintf("Name=Hah Core (%s)\n", chain);
         optionFile << "Exec=" << pszExePath << strprintf(" -min -testnet=%d -regtest=%d\n", GetBoolArg("-testnet", false), GetBoolArg("-regtest", false));
         optionFile << "Terminal=false\n";
         optionFile << "Hidden=false\n";
@@ -799,7 +799,7 @@ bool SetStartOnSystemStartup(bool fAutoStart)
 LSSharedFileListItemRef findStartupItemInList(LSSharedFileListRef list, CFURLRef findUrl);
 LSSharedFileListItemRef findStartupItemInList(LSSharedFileListRef list, CFURLRef findUrl)
 {
-    // loop through the list of startup items and try to find the Mun Core app
+    // loop through the list of startup items and try to find the Hah Core app
     CFArrayRef listSnapshot = LSSharedFileListCopySnapshot(list, NULL);
     for(int i = 0; i < CFArrayGetCount(listSnapshot); i++) {
         LSSharedFileListItemRef item = (LSSharedFileListItemRef)CFArrayGetValueAtIndex(listSnapshot, i);
@@ -844,7 +844,7 @@ bool SetStartOnSystemStartup(bool fAutoStart)
     LSSharedFileListItemRef foundItem = findStartupItemInList(loginItems, bitcoinAppUrl);
 
     if(fAutoStart && !foundItem) {
-        // add Mun Core app to startup item list
+        // add Hah Core app to startup item list
         LSSharedFileListInsertItemURL(loginItems, kLSSharedFileListItemBeforeFirst, NULL, NULL, bitcoinAppUrl, NULL, NULL);
     }
     else if(!fAutoStart && foundItem) {

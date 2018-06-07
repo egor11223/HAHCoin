@@ -1,11 +1,11 @@
 Sample configuration files for:
 
-SystemD: mund.service
-Upstart: mund.conf
-OpenRC:  mund.openrc
-         mund.openrcconf
-CentOS:  mund.init
-OS X:    org.mun.mund.plist
+SystemD: hahd.service
+Upstart: hahd.conf
+OpenRC:  hahd.openrc
+         hahd.openrcconf
+CentOS:  hahd.init
+OS X:    org.hah.hahd.plist
 
 have been made available to assist packagers in creating node packages here.
 

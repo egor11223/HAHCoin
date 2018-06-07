@@ -116,7 +116,7 @@ SECP256K1_API int secp256k1_schnorr_generate_nonce_pair(
  * - Each signer S[i] with private key x[i] and public key Q[i] runs
  *   secp256k1_schnorr_generate_nonce_pair to produce a pair (k[i],R[i]) of
  *   private/public nonces.
- * - All signers communicate their public nonces to each other (revealing your
+ * - All signers comhahicate their public nonces to each other (revealing your
  *   private nonce can lead to discovery of your private key, so it should be
  *   considered secret).
  * - All signers combine all the public nonces they received (excluding their
@@ -126,7 +126,7 @@ SECP256K1_API int secp256k1_schnorr_generate_nonce_pair(
  *   secp256k1_schnorr_partial_sign, passing in their own private key x[i],
  *   their own private nonce k[i], and the sum of the others' public nonces
  *   Rall[i].
- * - All signers communicate their partial signatures to each other.
+ * - All signers comhahicate their partial signatures to each other.
  * - Someone combines all partial signatures using
  *   secp256k1_schnorr_partial_combine, to obtain a full signature.
  * - The resulting signature is validatable using secp256k1_schnorr_verify, with

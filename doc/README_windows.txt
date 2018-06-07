@@ -1,9 +1,9 @@
-Mun Core 0.12.1
+Hah Core 0.12.1
 =====================
 
 Intro
 -----
-Mun is a free open source peer-to-peer electronic cash system that is
+Hah is a free open source peer-to-peer electronic cash system that is
 completely decentralized, without the need for a central server or trusted
 parties.  Users hold the crypto keys to their own money and transact directly
 with each other, with the help of a P2P network to check for double-spending.
@@ -11,13 +11,13 @@ with each other, with the help of a P2P network to check for double-spending.
 
 Setup
 -----
-Unpack the files into a directory and run mun-qt.exe.
+Unpack the files into a directory and run hah-qt.exe.
 
-Mun Core is the original Mun client and it builds the backbone of the network.
-However, it downloads and stores the entire history of Mun transactions;
+Hah Core is the original Hah client and it builds the backbone of the network.
+However, it downloads and stores the entire history of Hah transactions;
 depending on the speed of your computer and network connection, the synchronization
 process can take anywhere from a few hours to a day or more.
 
-See the mun wiki at:
-  https://munpay.atlassian.net/wiki/
+See the hah wiki at:
+  https://hahpay.atlassian.net/wiki/
 for more help and information.

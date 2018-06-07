@@ -16,7 +16,7 @@ v0.10.14 on Sept/25/2014.
 
 - Bounds checking in a few places where it was lacking
 - Output list in transactions lacked random seeding
-- masternode constants for communication are much easier to read now
+- masternode constants for comhahication are much easier to read now
 
 
 0.9.13.12 Release notes
@@ -284,7 +284,7 @@ http://test.explorer.darkcoin.fr/tx/6de2c5204abdea451da930f61bae0f954eef13188a3a
 0.9.12.15 Release notes
 -----------------------
 
-- Added session IDs for masternode communication. Clients were getting
+- Added session IDs for masternode comhahication. Clients were getting
   confused when they got messages about other sessions (sometimes happened when
   they all jumped on the same masternode at once)
 - Added a pre-session state where the client will query a random masternode
@@ -328,7 +328,7 @@ http://test.explorer.darkcoin.fr/tx/6de2c5204abdea451da930f61bae0f954eef13188a3a
 - Collateral now includes a fee (sometimes they took forever to get into a block)
 - Found race condition with new blocks and clearing darksend entries that was
   causing some collateral fees
-- Found a communication mix up where clients would see messages from the wrong
+- Found a comhahication mix up where clients would see messages from the wrong
   masternode and think it was theirs, also causing collateral fees
 - Added "Anonymized Balance" to overview
 - Added "anonymized_balance" to getinfo

@@ -30,7 +30,7 @@ QT_END_NAMESPACE
 /*
   WalletView class. This class represents the view to a single wallet.
   It was added to support multiple wallet functionality. Each wallet gets its own WalletView instance.
-  It communicates with both the client and the wallet models to give the user an up-to-date view of the
+  It comhahicates with both the client and the wallet models to give the user an up-to-date view of the
   current core state.
 */
 class WalletView : public QStackedWidget
@@ -43,7 +43,7 @@ public:
 
     void setBitcoinGUI(BitcoinGUI *gui);
     /** Set the client model.
-        The client model represents the part of the core that communicates with the P2P network, and is wallet-agnostic.
+        The client model represents the part of the core that comhahicates with the P2P network, and is wallet-agnostic.
     */
     void setClientModel(ClientModel *clientModel);
     /** Set the wallet model.
@@ -122,7 +122,7 @@ public Q_SLOTS:
     void requestedSyncWarningInfo();
 
 
-    /** Update selected MUN amount from transactionview */
+    /** Update selected HAH amount from transactionview */
     void trxAmount(QString amount);
 Q_SIGNALS:
     /** Signal that we want to show the main window */

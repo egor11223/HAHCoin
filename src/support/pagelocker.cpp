@@ -5,7 +5,7 @@
 #include "support/pagelocker.h"
 
 #if defined(HAVE_CONFIG_H)
-#include "config/mun-config.h"
+#include "config/hah-config.h"
 #endif
 
 #ifdef WIN32
@@ -61,7 +61,7 @@ bool MemoryPageLocker::Unlock(const void* addr, size_t len)
 #ifdef WIN32
     return VirtualUnlock(const_cast<void*>(addr), len) != 0;
 #else
-    return munlock(addr, len) == 0;
+    return hahlock(addr, len) == 0;
 #endif
 }
 

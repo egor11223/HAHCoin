@@ -137,7 +137,7 @@
   </layout>
  </widget>
  <resources>
-  <include location="../mun.qrc"/>
+  <include location="../hah.qrc"/>
  </resources>
  <connections/>
 </ui>

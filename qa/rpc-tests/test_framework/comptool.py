@@ -9,7 +9,7 @@ from .blockstore import BlockStore, TxStore
 from .util import p2p_port
 
 '''
-This is a tool for comparing two or more munds to each other
+This is a tool for comparing two or more hahds to each other
 using a script provided.
 
 To use, create a class that implements get_tests(), and pass it in
@@ -140,7 +140,7 @@ class TestNode(NodeConnCB):
 #    use the hash of the block)
 #  - NOTE: if a block header, no test is performed; instead the header is
 #    just added to the block_store.  This is to facilitate block delivery
-#    when communicating with headers-first clients (when withholding an
+#    when comhahicating with headers-first clients (when withholding an
 #    intermediate block).
 # sync_every_block: if True, then each block will be inv'ed, synced, and
 #    nodes will be tested based on the outcome for the block.  If False,

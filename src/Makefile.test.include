@@ -1,7 +1,7 @@
-TESTS += test/test_mun
-bin_PROGRAMS += test/test_mun
+TESTS += test/test_hah
+bin_PROGRAMS += test/test_hah
 TEST_SRCDIR = test
-TEST_BINARY=test/test_mun$(EXEEXT)
+TEST_BINARY=test/test_hah$(EXEEXT)
 
 
 EXTRA_DIST += \
@@ -84,8 +84,8 @@ BITCOIN_TESTS =\
   test/sigopcount_tests.cpp \
   test/skiplist_tests.cpp \
   test/streams_tests.cpp \
-  test/test_mun.cpp \
-  test/test_mun.h \
+  test/test_hah.cpp \
+  test/test_hah.h \
   test/timedata_tests.cpp \
   test/transaction_tests.cpp \
   test/txvalidationcache_tests.cpp \
@@ -101,23 +101,23 @@ BITCOIN_TESTS += \
   test/rpc_wallet_tests.cpp
 endif
 
-test_test_mun_SOURCES = $(BITCOIN_TESTS) $(JSON_TEST_FILES) $(RAW_TEST_FILES)
-test_test_mun_CPPFLAGS = $(AM_CPPFLAGS) $(BITCOIN_INCLUDES) -I$(builddir)/test/ $(TESTDEFS) $(EVENT_CFLAGS)
-test_test_mun_LDADD = $(LIBBITCOIN_SERVER) $(LIBBITCOIN_CLI) $(LIBBITCOIN_COMMON) $(LIBBITCOIN_UTIL) $(LIBBITCOIN_CRYPTO) $(LIBUNIVALUE) $(LIBLEVELDB) $(LIBMEMENV) \
+test_test_hah_SOURCES = $(BITCOIN_TESTS) $(JSON_TEST_FILES) $(RAW_TEST_FILES)
+test_test_hah_CPPFLAGS = $(AM_CPPFLAGS) $(BITCOIN_INCLUDES) -I$(builddir)/test/ $(TESTDEFS) $(EVENT_CFLAGS)
+test_test_hah_LDADD = $(LIBBITCOIN_SERVER) $(LIBBITCOIN_CLI) $(LIBBITCOIN_COMMON) $(LIBBITCOIN_UTIL) $(LIBBITCOIN_CRYPTO) $(LIBUNIVALUE) $(LIBLEVELDB) $(LIBMEMENV) \
   $(BOOST_LIBS) $(BOOST_UNIT_TEST_FRAMEWORK_LIB) $(LIBSECP256K1)
-test_test_mun_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
+test_test_hah_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
 if ENABLE_WALLET
-test_test_mun_LDADD += $(LIBBITCOIN_WALLET)
+test_test_hah_LDADD += $(LIBBITCOIN_WALLET)
 endif
 
-test_test_mun_LDADD += $(LIBBITCOIN_CONSENSUS) $(BDB_LIBS) $(SSL_LIBS) $(CRYPTO_LIBS) $(MINIUPNPC_LIBS) $(EVENT_PTHREADS_LIBS) $(EVENT_LIBS)
-test_test_mun_LDFLAGS = $(RELDFLAGS) $(AM_LDFLAGS) $(LIBTOOL_APP_LDFLAGS) -static
+test_test_hah_LDADD += $(LIBBITCOIN_CONSENSUS) $(BDB_LIBS) $(SSL_LIBS) $(CRYPTO_LIBS) $(MINIUPNPC_LIBS) $(EVENT_PTHREADS_LIBS) $(EVENT_LIBS)
+test_test_hah_LDFLAGS = $(RELDFLAGS) $(AM_LDFLAGS) $(LIBTOOL_APP_LDFLAGS) -static
 
 if ENABLE_ZMQ
-test_test_mun_LDADD += $(ZMQ_LIBS)
+test_test_hah_LDADD += $(ZMQ_LIBS)
 endif
 
-nodist_test_test_mun_SOURCES = $(GENERATED_TEST_FILES)
+nodist_test_test_hah_SOURCES = $(GENERATED_TEST_FILES)
 
 $(BITCOIN_TESTS): $(GENERATED_TEST_FILES)
 
@@ -125,13 +125,13 @@ CLEAN_BITCOIN_TEST = test/*.gcda test/*.gcno $(GENERATED_TEST_FILES)
 
 CLEANFILES += $(CLEAN_BITCOIN_TEST)
 
-mun_test: $(TEST_BINARY)
+hah_test: $(TEST_BINARY)
 
-mun_test_check: $(TEST_BINARY) FORCE
+hah_test_check: $(TEST_BINARY) FORCE
 	$(MAKE) check-TESTS TESTS=$^
 
-mun_test_clean : FORCE
-	rm -f $(CLEAN_BITCOIN_TEST) $(test_test_mun_OBJECTS) $(TEST_BINARY)
+hah_test_clean : FORCE
+	rm -f $(CLEAN_BITCOIN_TEST) $(test_test_hah_OBJECTS) $(TEST_BINARY)
 
 check-local:
 	@echo "Running test/bitcoin-util-test.py..."

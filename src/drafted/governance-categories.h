@@ -4,22 +4,22 @@
 
 	* means the category has an associated class
 
-	CMunNetwork: MUN NETWORK (ROOT)
+	CHahNetwork: HAH NETWORK (ROOT)
 	has:
 		vector<CNetworkVariable> vecNetworkVariables;
-		vector<CMunProject> vecProjects;
+		vector<CHahProject> vecProjects;
 		vector<CGovernanceObject> vecProposals;
 		vector<CBudgetContract> vecContracts;
 		vector<CBudgetUsers> vecUsers;
 
-	CMunProject:
+	CHahProject:
 	has:
 		name
 		employees
 
 */
 
-	// MUN NETWORK (ROOT)
+	// HAH NETWORK (ROOT)
 	// 	-> NETWORK VARIABLE
 	// 		-> switch, setting
 	// 	-> CATEGORIES
@@ -49,7 +49,7 @@
 	// 			-> USER1 (only users are allowed here in this scope)
 	// 			-> USER2
 	// 		-> GROUP2 (EVO)
-	// 			-> VALUEOVERRIDE (STORE=MUNDRIVE)
+	// 			-> VALUEOVERRIDE (STORE=HAHDRIVE)
 	// 			-> USER1
 
 	// 	-> COMPANIES

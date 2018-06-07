@@ -1,7 +1,7 @@
 // Copyright (c) 2010 Satoshi Nakamoto
 // Copyright (c) 2009-2014 The Bitcoin Core developers
 // Copyright (c) 2014-2017 The Dash Core developers
-// Copyright (c) 2017 The Mun Core developers
+// Copyright (c) 2017 The Hah Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -145,7 +145,7 @@ public:
         assert(genesis.hashMerkleRoot ==
                 uint256S("0x17f606cf3ec3991bbc9aec34a1f5355469c53013d83d627a62f6fb8bbcd35e9b"));
 
-        vSeeds.push_back(CDNSSeedData("muncoin.xyz", "seed1.muncoin.xyz")); // TODO: add seeds
+        vSeeds.push_back(CDNSSeedData("hahcoin.xyz", "seed1.hahcoin.xyz")); // TODO: add seeds
 
         // addresses start with 'M'
         base58Prefixes[PUBKEY_ADDRESS] = std::vector<unsigned char>(1,50);
@@ -158,7 +158,7 @@ public:
         // BIP32 prvkeys start with 'xprv' (Bitcoin defaults)
         base58Prefixes[EXT_SECRET_KEY] = boost::assign::list_of(0x04)(0x88)(0xAD)(0xE4).convert_to_container<std::vector<unsigned char> >();
 
-        // Mun BIP44 coin type is '5'
+        // Hah BIP44 coin type is '5'
         nExtCoinType = 5;
 
         vFixedSeeds = std::vector<SeedSpec6>(pnSeed6_main, pnSeed6_main + ARRAYLEN(pnSeed6_main));
@@ -258,20 +258,20 @@ public:
 
         vFixedSeeds.clear();
         vSeeds.clear();
-        vSeeds.push_back(CDNSSeedData("muncoin.xyz", "seed2.muncoin.xyz")); // TODO: add seeds
+        vSeeds.push_back(CDNSSeedData("hahcoin.xyz", "seed2.hahcoin.xyz")); // TODO: add seeds
 
-        // Testnet Mun addresses start with 'y'
+        // Testnet Hah addresses start with 'y'
         base58Prefixes[PUBKEY_ADDRESS] = std::vector<unsigned char>(1,140);
-        // Testnet Mun script addresses start with '8' or '9'
+        // Testnet Hah script addresses start with '8' or '9'
         base58Prefixes[SCRIPT_ADDRESS] = std::vector<unsigned char>(1,19);
         // Testnet private keys start with '9' or 'c' (Bitcoin defaults)
         base58Prefixes[SECRET_KEY] =     std::vector<unsigned char>(1,239);
-        // Testnet Mun BIP32 pubkeys start with 'tpub' (Bitcoin defaults)
+        // Testnet Hah BIP32 pubkeys start with 'tpub' (Bitcoin defaults)
         base58Prefixes[EXT_PUBLIC_KEY] = boost::assign::list_of(0x04)(0x35)(0x87)(0xCF).convert_to_container<std::vector<unsigned char> >();
-        // Testnet Mun BIP32 prvkeys start with 'tprv' (Bitcoin defaults)
+        // Testnet Hah BIP32 prvkeys start with 'tprv' (Bitcoin defaults)
         base58Prefixes[EXT_SECRET_KEY] = boost::assign::list_of(0x04)(0x35)(0x83)(0x94).convert_to_container<std::vector<unsigned char> >();
 
-        // Testnet Mun BIP44 coin type is '1' (All coin's testnet default)
+        // Testnet Hah BIP44 coin type is '1' (All coin's testnet default)
         nExtCoinType = 1;
 
         vFixedSeeds = std::vector<SeedSpec6>(pnSeed6_test, pnSeed6_test + ARRAYLEN(pnSeed6_test));
@@ -383,18 +383,18 @@ public:
             0,
             500
         };
-        // Regtest Mun addresses start with 'y'
+        // Regtest Hah addresses start with 'y'
         base58Prefixes[PUBKEY_ADDRESS] = std::vector<unsigned char>(1,140);
-        // Regtest Mun script addresses start with '8' or '9'
+        // Regtest Hah script addresses start with '8' or '9'
         base58Prefixes[SCRIPT_ADDRESS] = std::vector<unsigned char>(1,19);
         // Regtest private keys start with '9' or 'c' (Bitcoin defaults)
         base58Prefixes[SECRET_KEY] =     std::vector<unsigned char>(1,239);
-        // Regtest Mun BIP32 pubkeys start with 'tpub' (Bitcoin defaults)
+        // Regtest Hah BIP32 pubkeys start with 'tpub' (Bitcoin defaults)
         base58Prefixes[EXT_PUBLIC_KEY] = boost::assign::list_of(0x04)(0x35)(0x87)(0xCF).convert_to_container<std::vector<unsigned char> >();
-        // Regtest Mun BIP32 prvkeys start with 'tprv' (Bitcoin defaults)
+        // Regtest Hah BIP32 prvkeys start with 'tprv' (Bitcoin defaults)
         base58Prefixes[EXT_SECRET_KEY] = boost::assign::list_of(0x04)(0x35)(0x83)(0x94).convert_to_container<std::vector<unsigned char> >();
 
-        // Regtest Mun BIP44 coin type is '1' (All coin's testnet default)
+        // Regtest Hah BIP44 coin type is '1' (All coin's testnet default)
         nExtCoinType = 1;
    }
 };

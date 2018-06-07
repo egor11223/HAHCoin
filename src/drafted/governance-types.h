@@ -16,9 +16,9 @@ enum GovernanceObjectType {
     ValueOverride = 1,
 
     // -------------------------------
-    // MunNetwork - is the root node
-    MunNetwork = 1000,
-    MunNetworkVariable = 1001,
+    // HahNetwork - is the root node
+    HahNetwork = 1000,
+    HahNetworkVariable = 1001,
     Category = 1002,
 
     // Actors

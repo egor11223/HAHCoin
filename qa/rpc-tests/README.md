@@ -40,7 +40,7 @@ P2P test design notes
 over the network (```CBlock```, ```CTransaction```, etc, along with the network-level
 wrappers for them, ```msg_block```, ```msg_tx```, etc).
 
-* P2P tests have two threads.  One thread handles all network communication
+* P2P tests have two threads.  One thread handles all network comhahication
 with the bitcoind(s) being tested (using python's asyncore package); the other
 implements the test logic.
 

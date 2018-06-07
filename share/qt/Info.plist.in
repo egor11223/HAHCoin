@@ -17,7 +17,7 @@
   <string>APPL</string>
 
   <key>CFBundleGetInfoString</key>
-  <string>@CLIENT_VERSION_MAJOR@.@CLIENT_VERSION_MINOR@.@CLIENT_VERSION_REVISION@, Copyright © 2009-@COPYRIGHT_YEAR@ The Bitcoin Core developers, 2014-@COPYRIGHT_YEAR@ The Mun Core developers</string>
+  <string>@CLIENT_VERSION_MAJOR@.@CLIENT_VERSION_MINOR@.@CLIENT_VERSION_REVISION@, Copyright © 2009-@COPYRIGHT_YEAR@ The Bitcoin Core developers, 2014-@COPYRIGHT_YEAR@ The Hah Core developers</string>
 
   <key>CFBundleShortVersionString</key>
   <string>@CLIENT_VERSION_MAJOR@.@CLIENT_VERSION_MINOR@.@CLIENT_VERSION_REVISION@</string>
@@ -29,16 +29,16 @@
   <string>????</string>
 
   <key>CFBundleExecutable</key>
-  <string>Mun-Qt</string>
+  <string>Hah-Qt</string>
   
   <key>CFBundleName</key>
-  <string>Mun-Qt</string>
+  <string>Hah-Qt</string>
 
   <key>LSHasLocalizedDisplayName</key>
   <true/>
 
   <key>CFBundleIdentifier</key>
-  <string>org.mun.Mun-Qt</string>
+  <string>org.hah.Hah-Qt</string>
 
   <key>CFBundleURLTypes</key>
   <array>
@@ -46,10 +46,10 @@
       <key>CFBundleTypeRole</key>
       <string>Editor</string>
       <key>CFBundleURLName</key>
-      <string>org.mun.MunPayment</string>
+      <string>org.hah.HahPayment</string>
       <key>CFBundleURLSchemes</key>
       <array>
-        <string>mun</string>
+        <string>hah</string>
       </array>
     </dict>
   </array>
@@ -58,9 +58,9 @@
   <array>
     <dict>
       <key>UTTypeIdentifier</key>
-      <string>org.mun.paymentrequest</string>
+      <string>org.hah.paymentrequest</string>
       <key>UTTypeDescription</key>
-      <string>Mun payment request</string>
+      <string>Hah payment request</string>
       <key>UTTypeConformsTo</key>
       <array>
         <string>public.data</string>
@@ -68,10 +68,10 @@
       <key>UTTypeTagSpecification</key>
       <dict>
         <key>public.mime-type</key>
-        <string>application/x-mun-payment-request</string>
+        <string>application/x-hah-payment-request</string>
         <key>public.filename-extension</key>
         <array>
-          <string>munpaymentrequest</string>
+          <string>hahpaymentrequest</string>
         </array>
       </dict>
     </dict>
@@ -84,7 +84,7 @@
       <string>Editor</string>
       <key>LSItemContentTypes</key>
       <array>
-        <string>org.mun.paymentrequest</string>
+        <string>org.hah.paymentrequest</string>
       </array>
       <key>LSHandlerRank</key>
       <string>Owner</string>

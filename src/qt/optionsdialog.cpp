@@ -3,7 +3,7 @@
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
 #if defined(HAVE_CONFIG_H)
-#include "config/mun-config.h"
+#include "config/hah-config.h"
 #endif
 
 #include "optionsdialog.h"
@@ -92,11 +92,11 @@ OptionsDialog::OptionsDialog(QWidget *parent, bool enableWallet) :
     }
 
     /* Theme selector */
-    ui->theme->addItem(QString("MUN-light"), QVariant("light"));
-    //ui->theme->addItem(QString("MUN-light-hires"), QVariant("light-hires"));
-    ui->theme->addItem(QString("MUN-blue"), QVariant("drkblue"));
-    //ui->theme->addItem(QString("MUN-Crownium"), QVariant("crownium"));
-    ui->theme->addItem(QString("MUN-traditional"), QVariant("trad"));
+    ui->theme->addItem(QString("HAH-light"), QVariant("light"));
+    //ui->theme->addItem(QString("HAH-light-hires"), QVariant("light-hires"));
+    ui->theme->addItem(QString("HAH-blue"), QVariant("drkblue"));
+    //ui->theme->addItem(QString("HAH-Crownium"), QVariant("crownium"));
+    ui->theme->addItem(QString("HAH-traditional"), QVariant("trad"));
 
     /* Language selector */
     QDir translations(":translations");

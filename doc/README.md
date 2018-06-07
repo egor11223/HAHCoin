@@ -1,37 +1,37 @@
-Mun Core 0.12.1
+Hah Core 0.12.1
 =====================
 
-This is the official reference wallet for Mun digital currency and comprises the backbone of the Mun peer-to-peer network. You can [download Mun Core](https://www.mun.org/downloads/) or [build it yourself](#building) using the guides below.
+This is the official reference wallet for Hah digital currency and comprises the backbone of the Hah peer-to-peer network. You can [download Hah Core](https://www.hah.org/downloads/) or [build it yourself](#building) using the guides below.
 
 Running
 ---------------------
-The following are some helpful notes on how to run Mun on your native platform.
+The following are some helpful notes on how to run Hah on your native platform.
 
 ### Unix
 
 Unpack the files into a directory and run:
 
-- `bin/mun-qt` (GUI) or
-- `bin/mund` (headless)
+- `bin/hah-qt` (GUI) or
+- `bin/hahd` (headless)
 
 ### Windows
 
-Unpack the files into a directory, and then run mun-qt.exe.
+Unpack the files into a directory, and then run hah-qt.exe.
 
 ### OS X
 
-Drag Mun-Qt to your applications folder, and then run Mun-Qt.
+Drag Hah-Qt to your applications folder, and then run Hah-Qt.
 
 ### Need Help?
 
-* See the [Mun documentation](https://munpay.atlassian.net/wiki/display/DOC)
+* See the [Hah documentation](https://hahpay.atlassian.net/wiki/display/DOC)
 for help and more information.
-* Ask for help on [#munpay](http://webchat.freenode.net?channels=munpay) on Freenode. If you don't have an IRC client use [webchat here](http://webchat.freenode.net?channels=munpay).
-* Ask for help on the [MunTalk](https://muntalk.org/) forums.
+* Ask for help on [#hahpay](http://webchat.freenode.net?channels=hahpay) on Freenode. If you don't have an IRC client use [webchat here](http://webchat.freenode.net?channels=hahpay).
+* Ask for help on the [HahTalk](https://hahtalk.org/) forums.
 
 Building
 ---------------------
-The following are developer notes on how to build Mun Core on your native platform. They are not complete guides, but include notes on the necessary libraries, compile flags, etc.
+The following are developer notes on how to build Hah Core on your native platform. They are not complete guides, but include notes on the necessary libraries, compile flags, etc.
 
 - [OS X Build Notes](build-osx.md)
 - [Unix Build Notes](build-unix.md)
@@ -41,7 +41,7 @@ The following are developer notes on how to build Mun Core on your native platfo
 
 Development
 ---------------------
-The Mun Core repo's [root README](/README.md) contains relevant information on the development process and automated testing.
+The Hah Core repo's [root README](/README.md) contains relevant information on the development process and automated testing.
 
 - [Developer Notes](developer-notes.md)
 - [Multiwallet Qt Development](multiwallet-qt.md)
@@ -57,8 +57,8 @@ The Mun Core repo's [root README](/README.md) contains relevant information on t
 - [Dnsseed Policy](dnsseed-policy.md)
 
 ### Resources
-* Discuss on the [MunTalk](https://muntalk.org/) forums, in the Development & Technical Discussion board.
-* Discuss on [#munpay](http://webchat.freenode.net/?channels=munpay) on Freenode. If you don't have an IRC client use [webchat here](http://webchat.freenode.net/?channels=munpay).
+* Discuss on the [HahTalk](https://hahtalk.org/) forums, in the Development & Technical Discussion board.
+* Discuss on [#hahpay](http://webchat.freenode.net/?channels=hahpay) on Freenode. If you don't have an IRC client use [webchat here](http://webchat.freenode.net/?channels=hahpay).
 
 ### Miscellaneous
 - [Assets Attribution](assets-attribution.md)

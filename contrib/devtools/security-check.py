@@ -18,7 +18,7 @@ def check_ELF_PIE(executable):
     Check for position independent executable (PIE), allowing for address space randomization.
     '''
     p = subprocess.Popen([READELF_CMD, '-h', '-W', executable], stdout=subprocess.PIPE, stderr=subprocess.PIPE, stdin=subprocess.PIPE)
-    (stdout, stderr) = p.communicate()
+    (stdout, stderr) = p.comhahicate()
     if p.returncode:
         raise IOError('Error opening file')
 
@@ -32,7 +32,7 @@ def check_ELF_PIE(executable):
 def get_ELF_program_headers(executable):
     '''Return type and flags for ELF program headers'''
     p = subprocess.Popen([READELF_CMD, '-l', '-W', executable], stdout=subprocess.PIPE, stderr=subprocess.PIPE, stdin=subprocess.PIPE)
-    (stdout, stderr) = p.communicate()
+    (stdout, stderr) = p.comhahicate()
     if p.returncode:
         raise IOError('Error opening file')
     in_headers = False
@@ -89,7 +89,7 @@ def check_ELF_RELRO(executable):
 
     have_bindnow = False
     p = subprocess.Popen([READELF_CMD, '-d', '-W', executable], stdout=subprocess.PIPE, stderr=subprocess.PIPE, stdin=subprocess.PIPE)
-    (stdout, stderr) = p.communicate()
+    (stdout, stderr) = p.comhahicate()
     if p.returncode:
         raise IOError('Error opening file')
     for line in stdout.split('\n'):
@@ -103,7 +103,7 @@ def check_ELF_Canary(executable):
     Check for use of stack canary
     '''
     p = subprocess.Popen([READELF_CMD, '--dyn-syms', '-W', executable], stdout=subprocess.PIPE, stderr=subprocess.PIPE, stdin=subprocess.PIPE)
-    (stdout, stderr) = p.communicate()
+    (stdout, stderr) = p.comhahicate()
     if p.returncode:
         raise IOError('Error opening file')
     ok = False
@@ -117,7 +117,7 @@ def get_PE_dll_characteristics(executable):
     Get PE DllCharacteristics bits
     '''
     p = subprocess.Popen([OBJDUMP_CMD, '-x',  executable], stdout=subprocess.PIPE, stderr=subprocess.PIPE, stdin=subprocess.PIPE)
-    (stdout, stderr) = p.communicate()
+    (stdout, stderr) = p.comhahicate()
     if p.returncode:
         raise IOError('Error opening file')
     for line in stdout.split('\n'):

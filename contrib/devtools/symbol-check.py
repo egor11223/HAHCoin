@@ -95,7 +95,7 @@ def read_symbols(executable, imports=True):
     for dynamic, imported symbols.
     '''
     p = subprocess.Popen([READELF_CMD, '--dyn-syms', '-W', executable], stdout=subprocess.PIPE, stderr=subprocess.PIPE, stdin=subprocess.PIPE)
-    (stdout, stderr) = p.communicate()
+    (stdout, stderr) = p.comhahicate()
     if p.returncode:
         raise IOError('Could not read symbols for %s: %s' % (executable, stderr.strip()))
     syms = []
@@ -123,7 +123,7 @@ def check_version(max_versions, version):
 
 def read_libraries(filename):
     p = subprocess.Popen([READELF_CMD, '-d', '-W', filename], stdout=subprocess.PIPE, stderr=subprocess.PIPE, stdin=subprocess.PIPE)
-    (stdout, stderr) = p.communicate()
+    (stdout, stderr) = p.comhahicate()
     if p.returncode:
         raise IOError('Error opening file')
     libraries = []

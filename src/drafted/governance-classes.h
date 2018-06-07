@@ -1,4 +1,4 @@
-// Copyright (c) 2014-2017 The Mun Core developers
+// Copyright (c) 2014-2017 The Hah Core developers
 
 /*
  * FIELDS AND CLASSIFICATION
@@ -45,7 +45,7 @@
  * =========================
  *
  *   // network
- *   CMunNetwork lvl, network-type, network-status, network-error, milestone-status*
+ *   CHahNetwork lvl, network-type, network-status, network-error, milestone-status*
  *   CCategory lvl, category-type, status, status-error
  *   CNetworkGlobalVariable lvl, global-type, status, status-error
  *   // base: actor
@@ -79,7 +79,7 @@
  *  TREE STRUCTURE
  *  ===========================================
  *
- *  MUN NETWORK (ROOT)
+ *  HAH NETWORK (ROOT)
  *      -> NETWORK GLOBOLS
  *          -> SWITCHES, SETTINGS
  *      -> CATEGORIES
@@ -117,7 +117,7 @@ private:
     int nLevel;
     std::string strCategory;
 
-    // Current OBJECT STATUS (see http://govman.mun.org/index.php/Documentation_:_Status_Field)
+    // Current OBJECT STATUS (see http://govman.hah.org/index.php/Documentation_:_Status_Field)
     int nStatusID;
     std::string strStatusMessage;
 
@@ -130,7 +130,7 @@ public:
 };
 
 // // root node
-class CMunNetwork : public CGovernanceObject
+class CHahNetwork : public CGovernanceObject
 {
 private:
     std::string strName;
@@ -138,7 +138,7 @@ private:
 
 
 public:
-    CMunNetwork(UniValue objIn)
+    CHahNetwork(UniValue objIn)
     {
         strName = objIn["name"].get_str();
         strURL = objIn["name"].get_str();
@@ -174,9 +174,9 @@ public:
 
 };
 
-// // can be under: MunNetwork
+// // can be under: HahNetwork
 // //   -- signature requirements : Key1(User)
-// class CMunNetworkVariable : public CGovernanceObject
+// class CHahNetworkVariable : public CGovernanceObject
 // {
 // private:
 
@@ -279,7 +279,7 @@ public:
 //     // isRootCategory()
 //     // {
 //     //     // root categories won't have categories as parents
-//     //     return (IsType() == MunNetwork);
+//     //     return (IsType() == HahNetwork);
 //     // }
 
 //     // isSubcategoryOf(std::string strParentName)

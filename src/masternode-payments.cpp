@@ -1,4 +1,4 @@
-// Copyright (c) 2014-2017 The Mun Core developers
+// Copyright (c) 2014-2017 The Hah Core developers
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -27,7 +27,7 @@ CCriticalSection cs_mapMasternodePaymentVotes;
 *   Determine if coinbase outgoing created money is the correct value
 *
 *   Why is this needed?
-*   - In Mun some blocks are superblocks, which output much higher amounts of coins
+*   - In Hah some blocks are superblocks, which output much higher amounts of coins
 *   - Otherblocks are 10% lower in outgoing value, so in total, no extra coins are created
 *   - When non-superblocks are detected, the normal schedule should be maintained
 */
@@ -305,7 +305,7 @@ int CMasternodePayments::GetMinMasternodePaymentsProto() {
 
 void CMasternodePayments::ProcessMessage(CNode* pfrom, std::string& strCommand, CDataStream& vRecv, CConnman& connman)
 {
-    if(fLiteMode) return; // disable all Mun specific functionality
+    if(fLiteMode) return; // disable all Hah specific functionality
 
     if (strCommand == NetMsgType::MASTERNODEPAYMENTSYNC) { //Masternode Payments Request Sync
 
@@ -583,7 +583,7 @@ bool CMasternodeBlockPayees::IsTransactionValid(const CTransaction& txNew)
         }
     }
 
-    LogPrintf("CMasternodeBlockPayees::IsTransactionValid -- ERROR: Missing required payment, possible payees: '%s', amount: %f MUN\n", strPayeesPossible, (float)nMasternodePayment/COIN);
+    LogPrintf("CMasternodeBlockPayees::IsTransactionValid -- ERROR: Missing required payment, possible payees: '%s', amount: %f HAH\n", strPayeesPossible, (float)nMasternodePayment/COIN);
     return false;
 }
 

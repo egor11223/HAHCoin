@@ -27,7 +27,7 @@ def bctest(testDir, testObj, exeext):
 		outputData = open(testDir + "/" + outputFn).read()
 	proc = subprocess.Popen(execrun, stdin=stdinCfg, stdout=subprocess.PIPE, stderr=subprocess.PIPE,universal_newlines=True)
 	try:
-		outs = proc.communicate(input=inputData)
+		outs = proc.comhahicate(input=inputData)
 	except OSError:
 		print("OSError, Failed to execute " + execprog)
 		sys.exit(1)

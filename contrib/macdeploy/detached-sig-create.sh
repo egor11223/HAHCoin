@@ -2,7 +2,7 @@
 set -e
 
 ROOTDIR=dist
-BUNDLE="${ROOTDIR}/Mun-Qt.app"
+BUNDLE="${ROOTDIR}/Hah-Qt.app"
 CODESIGN=codesign
 TEMPDIR=sign.temp
 TEMPLIST=${TEMPDIR}/signatures.txt

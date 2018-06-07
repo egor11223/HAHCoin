@@ -1,4 +1,4 @@
-// Copyright (c) 2014-2017 The Mun Core developers
+// Copyright (c) 2014-2017 The Hah Core developers
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -243,7 +243,7 @@ std::string CKeePassIntegrator::constructHTTPPost(const std::string& strMsg, con
 {
     std::ostringstream streamOut;
     streamOut << "POST / HTTP/1.1\r\n"
-      << "User-Agent: mun-json-rpc/" << FormatFullVersion() << "\r\n"
+      << "User-Agent: hah-json-rpc/" << FormatFullVersion() << "\r\n"
       << "Host: localhost\r\n"
       << "Content-Type: application/json\r\n"
       << "Content-Length: " << strMsg.size() << "\r\n"
@@ -291,7 +291,7 @@ static void http_request_done(struct evhttp_request *req, void *ctx)
 // Send RPC message to KeePassHttp
 void CKeePassIntegrator::doHTTPPost(const std::string& sRequest, int& nStatus, std::string& strResponse)
 {
-//    // Prepare communication
+//    // Prepare comhahication
 //    boost::asio::io_service io_service;
 
 //    // Get a list of endpoints corresponding to the server name.
@@ -336,7 +336,7 @@ void CKeePassIntegrator::doHTTPPost(const std::string& sRequest, int& nStatus, s
     struct evkeyvalq *output_headers = evhttp_request_get_output_headers(req);
     assert(output_headers);
 //    s << "POST / HTTP/1.1\r\n"
-    evhttp_add_header(output_headers, "User-Agent", ("mun-json-rpc/" + FormatFullVersion()).c_str());
+    evhttp_add_header(output_headers, "User-Agent", ("hah-json-rpc/" + FormatFullVersion()).c_str());
     evhttp_add_header(output_headers, "Host", KEEPASS_HTTP_HOST);
     evhttp_add_header(output_headers, "Accept", "application/json");
     evhttp_add_header(output_headers, "Content-Type", "application/json");
@@ -494,7 +494,7 @@ void CKeePassIntegrator::rpcSetLogin(const SecureString& sWalletPass, const Secu
     LogPrint("keepass", "CKeePassIntegrator::rpcSetLogin -- send Url: %s\n", sUrl);
 
     //request.addStrParameter("SubmitUrl", sSubmitUrl); // Is used to construct the entry title
-    request.addStrParameter("Login", SecureString("mun"));
+    request.addStrParameter("Login", SecureString("hah"));
     request.addStrParameter("Password", sWalletPass);
     if(sEntryId.size() != 0)
     {

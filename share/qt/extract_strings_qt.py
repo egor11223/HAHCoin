@@ -9,7 +9,7 @@ import operator
 import os
 import sys
 
-OUT_CPP="qt/munstrings.cpp"
+OUT_CPP="qt/hahstrings.cpp"
 EMPTY=['""']
 
 def parse_po(text):
@@ -53,7 +53,7 @@ files = sys.argv[1:]
 # xgettext -n --keyword=_ $FILES
 XGETTEXT=os.getenv('XGETTEXT', 'xgettext')
 child = Popen([XGETTEXT,'--output=-','-n','--keyword=_'] + files, stdout=PIPE)
-(out, err) = child.communicate()
+(out, err) = child.comhahicate()
 
 messages = parse_po(out)
 
@@ -69,10 +69,10 @@ f.write("""
 #define UNUSED
 #endif
 """)
-f.write('static const char UNUSED *mun_strings[] = {\n')
+f.write('static const char UNUSED *hah_strings[] = {\n')
 messages.sort(key=operator.itemgetter(0))
 for (msgid, msgstr) in messages:
     if msgid != EMPTY:
-        f.write('QT_TRANSLATE_NOOP("mun-core", %s),\n' % ('\n'.join(msgid)))
+        f.write('QT_TRANSLATE_NOOP("hah-core", %s),\n' % ('\n'.join(msgid)))
 f.write('};\n')
 f.close()

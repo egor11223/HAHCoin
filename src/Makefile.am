@@ -49,8 +49,8 @@ EXTRA_LIBRARIES += libbitcoin_zmq.a
 endif
 
 if BUILD_BITCOIN_LIBS
-lib_LTLIBRARIES = libmunconsensus.la
-LIBBITCOIN_CONSENSUS=libmunconsensus.la
+lib_LTLIBRARIES = libhahconsensus.la
+LIBBITCOIN_CONSENSUS=libhahconsensus.la
 else
 LIBBITCOIN_CONSENSUS=
 endif
@@ -60,15 +60,15 @@ TESTS =
 BENCHMARKS =
 
 if BUILD_BITCOIND
-  bin_PROGRAMS += mund
+  bin_PROGRAMS += hahd
 endif
 
 if BUILD_BITCOIN_UTILS
-  bin_PROGRAMS += mun-cli mun-tx
+  bin_PROGRAMS += hah-cli hah-tx
 endif
 
 .PHONY: FORCE check-symbols check-security
-# mun core #
+# hah core #
 BITCOIN_CORE_H = \
   addrdb.h \
   activemasternode.h \
@@ -207,7 +207,7 @@ obj/build.h: FORCE
 	  $(abs_top_srcdir)
 libbitcoin_util_a-clientversion.$(OBJEXT): obj/build.h
 
-# server: shared between mund and mun-qt
+# server: shared between hahd and hah-qt
 libbitcoin_server_a_CPPFLAGS = $(AM_CPPFLAGS) $(BITCOIN_INCLUDES) $(MINIUPNPC_CPPFLAGS) $(EVENT_CFLAGS) $(EVENT_PTHREADS_CFLAGS)
 libbitcoin_server_a_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
 libbitcoin_server_a_SOURCES = \
@@ -280,7 +280,7 @@ libbitcoin_zmq_a_SOURCES = \
 endif
 
 
-# wallet: shared between mund and mun-qt, but only linked
+# wallet: shared between hahd and hah-qt, but only linked
 # when wallet enabled
 libbitcoin_wallet_a_CPPFLAGS = $(AM_CPPFLAGS) $(BITCOIN_INCLUDES)
 libbitcoin_wallet_a_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
@@ -329,7 +329,7 @@ crypto_libbitcoin_crypto_a_SOURCES += \
   crypto/sph_gost.h \
   crypto/sph_types.h
 
-# common: shared between mund, and mun-qt and non-server tools
+# common: shared between hahd, and hah-qt and non-server tools
 libbitcoin_common_a_CPPFLAGS = $(AM_CPPFLAGS) $(BITCOIN_INCLUDES)
 libbitcoin_common_a_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
 libbitcoin_common_a_SOURCES = \
@@ -389,7 +389,7 @@ if GLIBC_BACK_COMPAT
 libbitcoin_util_a_SOURCES += compat/glibc_compat.cpp
 endif
 
-# cli: shared between mun-cli and mun-qt
+# cli: shared between hah-cli and hah-qt
 libbitcoin_cli_a_CPPFLAGS = $(AM_CPPFLAGS) $(BITCOIN_INCLUDES)
 libbitcoin_cli_a_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
 libbitcoin_cli_a_SOURCES = \
@@ -400,16 +400,16 @@ nodist_libbitcoin_util_a_SOURCES = $(srcdir)/obj/build.h
 #
 
 # bitcoind binary #
-mund_SOURCES = mund.cpp
-mund_CPPFLAGS = $(AM_CPPFLAGS) $(BITCOIN_INCLUDES)
-mund_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
-mund_LDFLAGS = $(RELDFLAGS) $(AM_LDFLAGS) $(LIBTOOL_APP_LDFLAGS)
+hahd_SOURCES = hahd.cpp
+hahd_CPPFLAGS = $(AM_CPPFLAGS) $(BITCOIN_INCLUDES)
+hahd_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
+hahd_LDFLAGS = $(RELDFLAGS) $(AM_LDFLAGS) $(LIBTOOL_APP_LDFLAGS)
 
 if TARGET_WINDOWS
-mund_SOURCES += mund-res.rc
+hahd_SOURCES += hahd-res.rc
 endif
 
-mund_LDADD = \
+hahd_LDADD = \
   $(LIBBITCOIN_SERVER) \
   $(LIBBITCOIN_COMMON) \
   $(LIBUNIVALUE) \
@@ -420,56 +420,56 @@ mund_LDADD = \
   $(LIBSECP256K1)
 
 if ENABLE_ZMQ
-mund_LDADD += $(LIBBITCOIN_ZMQ) $(ZMQ_LIBS)
+hahd_LDADD += $(LIBBITCOIN_ZMQ) $(ZMQ_LIBS)
 endif
 
 if ENABLE_WALLET
-mund_LDADD += libbitcoin_wallet.a
+hahd_LDADD += libbitcoin_wallet.a
 endif
 
-mund_LDADD += $(BOOST_LIBS) $(BDB_LIBS) $(SSL_LIBS) $(CRYPTO_LIBS) $(MINIUPNPC_LIBS) $(EVENT_PTHREADS_LIBS) $(EVENT_LIBS)
+hahd_LDADD += $(BOOST_LIBS) $(BDB_LIBS) $(SSL_LIBS) $(CRYPTO_LIBS) $(MINIUPNPC_LIBS) $(EVENT_PTHREADS_LIBS) $(EVENT_LIBS)
 
-# mun-cli binary #
-mun_cli_SOURCES = mun-cli.cpp
-mun_cli_CPPFLAGS = $(AM_CPPFLAGS) $(BITCOIN_INCLUDES) $(EVENT_CFLAGS)
-mun_cli_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
-mun_cli_LDFLAGS = $(RELDFLAGS) $(AM_LDFLAGS) $(LIBTOOL_APP_LDFLAGS)
+# hah-cli binary #
+hah_cli_SOURCES = hah-cli.cpp
+hah_cli_CPPFLAGS = $(AM_CPPFLAGS) $(BITCOIN_INCLUDES) $(EVENT_CFLAGS)
+hah_cli_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
+hah_cli_LDFLAGS = $(RELDFLAGS) $(AM_LDFLAGS) $(LIBTOOL_APP_LDFLAGS)
 
 if TARGET_WINDOWS
-mun_cli_SOURCES += mun-cli-res.rc
+hah_cli_SOURCES += hah-cli-res.rc
 endif
 
-mun_cli_LDADD = \
+hah_cli_LDADD = \
   $(LIBBITCOIN_CLI) \
   $(LIBUNIVALUE) \
   $(LIBBITCOIN_UTIL)
-mun_cli_LDADD += $(BOOST_LIBS) $(SSL_LIBS) $(CRYPTO_LIBS) $(EVENT_LIBS)
+hah_cli_LDADD += $(BOOST_LIBS) $(SSL_LIBS) $(CRYPTO_LIBS) $(EVENT_LIBS)
 #
 
-# mun-tx binary #
-mun_tx_SOURCES = mun-tx.cpp
-mun_tx_CPPFLAGS = $(AM_CPPFLAGS) $(BITCOIN_INCLUDES)
-mun_tx_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
-mun_tx_LDFLAGS = $(RELDFLAGS) $(AM_LDFLAGS) $(LIBTOOL_APP_LDFLAGS)
+# hah-tx binary #
+hah_tx_SOURCES = hah-tx.cpp
+hah_tx_CPPFLAGS = $(AM_CPPFLAGS) $(BITCOIN_INCLUDES)
+hah_tx_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
+hah_tx_LDFLAGS = $(RELDFLAGS) $(AM_LDFLAGS) $(LIBTOOL_APP_LDFLAGS)
 
 if TARGET_WINDOWS
-mun_tx_SOURCES += mun-tx-res.rc
+hah_tx_SOURCES += hah-tx-res.rc
 endif
 
-mun_tx_LDADD = \
+hah_tx_LDADD = \
   $(LIBUNIVALUE) \
   $(LIBBITCOIN_COMMON) \
   $(LIBBITCOIN_UTIL) \
   $(LIBBITCOIN_CRYPTO) \
   $(LIBSECP256K1)
 
-mun_tx_LDADD += $(BOOST_LIBS) $(CRYPTO_LIBS)
+hah_tx_LDADD += $(BOOST_LIBS) $(CRYPTO_LIBS)
 #
 
-# munconsensus library #
+# hahconsensus library #
 if BUILD_BITCOIN_LIBS
-include_HEADERS = script/munconsensus.h
-libmunconsensus_la_SOURCES = \
+include_HEADERS = script/hahconsensus.h
+libhahconsensus_la_SOURCES = \
   crypto/hmac_sha512.cpp \
   crypto/ripemd160.cpp \
   crypto/sha1.cpp \
@@ -478,20 +478,20 @@ libmunconsensus_la_SOURCES = \
   hash.cpp \
   primitives/transaction.cpp \
   pubkey.cpp \
-  script/munconsensus.cpp \
+  script/hahconsensus.cpp \
   script/interpreter.cpp \
   script/script.cpp \
   uint256.cpp \
   utilstrencodings.cpp
 
 if GLIBC_BACK_COMPAT
-  libmunconsensus_la_SOURCES += compat/glibc_compat.cpp
+  libhahconsensus_la_SOURCES += compat/glibc_compat.cpp
 endif
 
-libmunconsensus_la_LDFLAGS = $(AM_LDFLAGS) -no-undefined $(RELDFLAGS)
-libmunconsensus_la_LIBADD = $(LIBSECP256K1)
-libmunconsensus_la_CPPFLAGS = $(AM_CPPFLAGS) -I$(builddir)/obj -I$(srcdir)/secp256k1/include -DBUILD_BITCOIN_INTERNAL
-libmunconsensus_la_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
+libhahconsensus_la_LDFLAGS = $(AM_LDFLAGS) -no-undefined $(RELDFLAGS)
+libhahconsensus_la_LIBADD = $(LIBSECP256K1)
+libhahconsensus_la_CPPFLAGS = $(AM_CPPFLAGS) -I$(builddir)/obj -I$(srcdir)/secp256k1/include -DBUILD_BITCOIN_INTERNAL
+libhahconsensus_la_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
 
 endif
 #

@@ -186,7 +186,7 @@ bool CCoinsViewCache::BatchWrite(CCoinsMap &mapCoins, const uint256 &hashBlockIn
                     // NOTE: It is possible the child has a FRESH flag here in
                     // the event the entry we found in the parent is pruned. But
                     // we must not copy that FRESH flag to the parent as that
-                    // pruned state likely still needs to be communicated to the
+                    // pruned state likely still needs to be comhahicated to the
                     // grandparent.
                 }
             }

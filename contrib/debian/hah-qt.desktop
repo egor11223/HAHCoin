@@ -1,0 +1,12 @@
+[Desktop Entry]
+Encoding=UTF-8
+Name=Hah
+Comment=Hah P2P Cryptocurrency
+Comment[fr]=Hah, monnaie virtuelle cryptographique pair à pair
+Comment[tr]=Hah, eşten eşe kriptografik sanal para birimi
+Exec=hah-qt %u
+Terminal=false
+Type=Application
+Icon=hah128
+MimeType=x-scheme-handler/hah;
+Categories=Office;Finance;

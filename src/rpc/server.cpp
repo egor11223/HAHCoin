@@ -1,6 +1,6 @@
 // Copyright (c) 2010 Satoshi Nakamoto
 // Copyright (c) 2009-2015 The Bitcoin Core developers
-// Copyright (c) 2014-2017 The Mun Core developers
+// Copyright (c) 2014-2017 The Hah Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -243,11 +243,11 @@ UniValue stop(const UniValue& params, bool fHelp)
     if (fHelp || params.size() > 1)
         throw runtime_error(
             "stop\n"
-            "\nStop Mun Core server.");
+            "\nStop Hah Core server.");
     // Event loop will exit after current HTTP requests have been handled, so
     // this reply will get back to the client.
     StartShutdown();
-    return "Mun Core server stopping";
+    return "Hah Core server stopping";
 }
 
 /**
@@ -343,20 +343,20 @@ static const CRPCCommand vRPCCommands[] =
     { "hidden",             "resendwallettransactions", &resendwallettransactions, true},
 #endif
 
-    /* Mun features */
-    { "mun",               "masternode",             &masternode,             true  },
-    { "mun",               "masternodelist",         &masternodelist,         true  },
-    { "mun",               "masternodebroadcast",    &masternodebroadcast,    true  },
-    { "mun",               "gobject",                &gobject,                true  },
-    { "mun",               "getgovernanceinfo",      &getgovernanceinfo,      true  },
-    { "mun",               "getsuperblockbudget",    &getsuperblockbudget,    true  },
-    { "mun",               "voteraw",                &voteraw,                true  },
-    { "mun",               "mnsync",                 &mnsync,                 true  },
-    { "mun",               "spork",                  &spork,                  true  },
-    { "mun",               "getpoolinfo",            &getpoolinfo,            true  },
-    { "mun",               "sentinelping",           &sentinelping,           true  },
+    /* Hah features */
+    { "hah",               "masternode",             &masternode,             true  },
+    { "hah",               "masternodelist",         &masternodelist,         true  },
+    { "hah",               "masternodebroadcast",    &masternodebroadcast,    true  },
+    { "hah",               "gobject",                &gobject,                true  },
+    { "hah",               "getgovernanceinfo",      &getgovernanceinfo,      true  },
+    { "hah",               "getsuperblockbudget",    &getsuperblockbudget,    true  },
+    { "hah",               "voteraw",                &voteraw,                true  },
+    { "hah",               "mnsync",                 &mnsync,                 true  },
+    { "hah",               "spork",                  &spork,                  true  },
+    { "hah",               "getpoolinfo",            &getpoolinfo,            true  },
+    { "hah",               "sentinelping",           &sentinelping,           true  },
 #ifdef ENABLE_WALLET
-    { "mun",               "privatesend",            &privatesend,            false },
+    { "hah",               "privatesend",            &privatesend,            false },
 
     /* Wallet */
     { "wallet",             "keepass",                &keepass,                true },
@@ -580,7 +580,7 @@ std::vector<std::string> CRPCTable::listCommands() const
 
 std::string HelpExampleCli(const std::string& methodname, const std::string& args)
 {
-    return "> mun-cli " + methodname + " " + args + "\n";
+    return "> hah-cli " + methodname + " " + args + "\n";
 }
 
 std::string HelpExampleRpc(const std::string& methodname, const std::string& args)

@@ -25,7 +25,7 @@ enum ChangeType
     CT_DELETED
 };
 
-/** Signals for UI communication. */
+/** Signals for UI comhahication. */
 class CClientUIInterface
 {
 public:

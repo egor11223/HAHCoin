@@ -3,7 +3,7 @@
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
 /**
- * Functionality for communicating with Tor.
+ * Functionality for comhahicating with Tor.
  */
 #ifndef BITCOIN_TORCONTROL_H
 #define BITCOIN_TORCONTROL_H

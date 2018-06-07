@@ -13,7 +13,7 @@
 - (NSString *)__bundleIdentifier
 {
     if (self == [NSBundle mainBundle]) {
-        return @"org.mun.Mun-Qt";
+        return @"org.hah.Hah-Qt";
     } else {
         return [self __bundleIdentifier];
     }

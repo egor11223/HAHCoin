@@ -1,7 +1,7 @@
 ### Gavin's notes on getting gitian builds up and running using KVM
 
 These instructions distilled from
-[https://help.ubuntu.com/community/KVM/Installation](https://help.ubuntu.com/community/KVM/Installation).
+[https://help.ubuntu.com/comhahity/KVM/Installation](https://help.ubuntu.com/comhahity/KVM/Installation).
 
 You need the right hardware: you need a 64-bit-capable CPU with hardware virtualization support (Intel VT-x or AMD-V). Not all modern CPUs support hardware virtualization.
 
@@ -19,7 +19,7 @@ Sanity checks:
 
 Once you've got the right hardware and software:
 
-    git clone git://github.com/munpay/mun.git
+    git clone git://github.com/hahpay/hah.git
     git clone git://github.com/devrandom/gitian-builder.git
     mkdir gitian-builder/inputs
     cd gitian-builder/inputs
@@ -61,5 +61,5 @@ Here's a description of Gavin's setup on OSX 10.6:
 5. Still inside Ubuntu, tell gitian-builder to use LXC, then follow the "Once you've got the right hardware and software" instructions above:
 
 	export USE_LXC=1
-	git clone git://github.com/munpay/mun.git
+	git clone git://github.com/hahpay/hah.git
 	... etc

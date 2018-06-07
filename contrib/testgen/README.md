@@ -1,6 +1,6 @@
 ### TestGen ###
 
-Utilities to generate test vectors for the data-driven Mun tests.
+Utilities to generate test vectors for the data-driven Hah tests.
 
 Usage: 
 

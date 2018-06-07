@@ -1,11 +1,11 @@
 // Copyright (c) 2009-2010 Satoshi Nakamoto
 // Copyright (c) 2009-2015 The Bitcoin Core developers
-// Copyright (c) 2014-2017 The Mun Core developers
+// Copyright (c) 2014-2017 The Hah Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
 #if defined(HAVE_CONFIG_H)
-#include "config/mun-config.h"
+#include "config/hah-config.h"
 #endif
 
 #include "init.h"
@@ -223,7 +223,7 @@ void PrepareShutdown()
     /// for example if the data directory was found to be locked.
     /// Be sure that anything that writes files or flushes caches only does this if the respective
     /// module was initialized.
-    RenameThread("mun-shutoff");
+    RenameThread("hah-shutoff");
     mempool.AddTransactionsUpdated(1);
     StopHTTPRPC();
     StopREST();
@@ -504,7 +504,7 @@ std::string HelpMessage(HelpMessageMode mode)
     strUsage += HelpMessageOpt("-walletbackupsdir=<dir>", _("Specify full path to directory for automatic wallet backups (must exist)"));
     strUsage += HelpMessageOpt("-keepass", strprintf(_("Use KeePass 2 integration using KeePassHttp plugin (default: %u)"), 0));
     strUsage += HelpMessageOpt("-keepassport=<port>", strprintf(_("Connect to KeePassHttp on port <port> (default: %u)"), DEFAULT_KEEPASS_HTTP_PORT));
-    strUsage += HelpMessageOpt("-keepasskey=<key>", _("KeePassHttp key for AES encrypted communication with KeePass"));
+    strUsage += HelpMessageOpt("-keepasskey=<key>", _("KeePassHttp key for AES encrypted comhahication with KeePass"));
     strUsage += HelpMessageOpt("-keepassid=<name>", _("KeePassHttp id for the established association"));
     strUsage += HelpMessageOpt("-keepassname=<name>", _("Name to construct url for KeePass entry that stores the wallet passphrase"));
     if (mode == HMM_BITCOIN_QT)
@@ -581,7 +581,7 @@ std::string HelpMessage(HelpMessageMode mode)
     }
     strUsage += HelpMessageOpt("-shrinkdebugfile", _("Shrink debug.log file on client startup (default: 1 when no -debug)"));
     AppendParamsHelpMessages(strUsage, showDebug);
-    strUsage += HelpMessageOpt("-litemode=<n>", strprintf(_("Disable all Mun specific functionality (Masternodes, PrivateSend, InstantSend, Governance) (0-1, default: %u)"), 0));
+    strUsage += HelpMessageOpt("-litemode=<n>", strprintf(_("Disable all Hah specific functionality (Masternodes, PrivateSend, InstantSend, Governance) (0-1, default: %u)"), 0));
 
     strUsage += HelpMessageGroup(_("Masternode options:"));
     strUsage += HelpMessageOpt("-masternode=<n>", strprintf(_("Enable the client to act as a masternode (0-1, default: %u)"), 0));
@@ -594,7 +594,7 @@ std::string HelpMessage(HelpMessageMode mode)
     strUsage += HelpMessageOpt("-enableprivatesend=<n>", strprintf(_("Enable use of automated PrivateSend for funds stored in this wallet (0-1, default: %u)"), 0));
     strUsage += HelpMessageOpt("-privatesendmultisession=<n>", strprintf(_("Enable multiple PrivateSend mixing sessions per block, experimental (0-1, default: %u)"), DEFAULT_PRIVATESEND_MULTISESSION));
     strUsage += HelpMessageOpt("-privatesendrounds=<n>", strprintf(_("Use N separate masternodes for each denominated input to mix funds (2-16, default: %u)"), DEFAULT_PRIVATESEND_ROUNDS));
-    strUsage += HelpMessageOpt("-privatesendamount=<n>", strprintf(_("Keep N MUN anonymized (default: %u)"), DEFAULT_PRIVATESEND_AMOUNT));
+    strUsage += HelpMessageOpt("-privatesendamount=<n>", strprintf(_("Keep N HAH anonymized (default: %u)"), DEFAULT_PRIVATESEND_AMOUNT));
     strUsage += HelpMessageOpt("-liquidityprovider=<n>", strprintf(_("Provide liquidity to PrivateSend by infrequently mixing coins on a continual basis (0-100, default: %u, 1=very frequent, high fees, 100=very infrequent, low fees)"), DEFAULT_PRIVATESEND_LIQUIDITY));
 #endif // ENABLE_WALLET
 
@@ -643,7 +643,7 @@ std::string LicenseInfo()
     // todo: remove urls from translations on next change
     return FormatParagraph(strprintf(_("Copyright (C) 2009-%i The Bitcoin Core Developers"), COPYRIGHT_YEAR)) + "\n" +
            "\n" +
-           FormatParagraph(strprintf(_("Copyright (C) 2014-%i The Mun Core Developers"), COPYRIGHT_YEAR)) + "\n" +
+           FormatParagraph(strprintf(_("Copyright (C) 2014-%i The Hah Core Developers"), COPYRIGHT_YEAR)) + "\n" +
            "\n" +
            FormatParagraph(_("This is experimental software.")) + "\n" +
            "\n" +
@@ -723,7 +723,7 @@ void CleanupBlockRevFiles()
 void ThreadImport(std::vector<boost::filesystem::path> vImportFiles)
 {
     const CChainParams& chainparams = Params();
-    RenameThread("mun-loadblk");
+    RenameThread("hah-loadblk");
     CImportingNow imp;
 
     // -reindex
@@ -786,7 +786,7 @@ void ThreadImport(std::vector<boost::filesystem::path> vImportFiles)
 }
 
 /** Sanity checks
- *  Ensure that Mun Core is running in a usable environment with all
+ *  Ensure that Hah Core is running in a usable environment with all
  *  necessary library support.
  */
 bool InitSanityCheck(void)
@@ -951,10 +951,10 @@ void InitLogging()
     fLogIPs = GetBoolArg("-logips", DEFAULT_LOGIPS);
 
     LogPrintf("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
-    LogPrintf("Mun Core version %s (%s)\n", FormatFullVersion(), CLIENT_DATE);
+    LogPrintf("Hah Core version %s (%s)\n", FormatFullVersion(), CLIENT_DATE);
 }
 
-/** Initialize Mun Core.
+/** Initialize Hah Core.
  *  @pre Parameters should be parsed and config file should be read.
  */
 bool AppInit2(boost::thread_group& threadGroup, CScheduler& scheduler)
@@ -1231,7 +1231,7 @@ bool AppInit2(boost::thread_group& threadGroup, CScheduler& scheduler)
 
     // Sanity check
     if (!InitSanityCheck())
-        return InitError(_("Initialization sanity check failed. Mun Core is shutting down."));
+        return InitError(_("Initialization sanity check failed. Hah Core is shutting down."));
 
     std::string strDataDir = GetDataDir().string();
 #ifdef ENABLE_WALLET
@@ -1239,7 +1239,7 @@ bool AppInit2(boost::thread_group& threadGroup, CScheduler& scheduler)
     if (strWalletFile != boost::filesystem::basename(strWalletFile) + boost::filesystem::extension(strWalletFile))
         return InitError(strprintf(_("Wallet %s resides outside data directory %s"), strWalletFile, strDataDir));
 #endif
-    // Make sure only a single Mun Core process is using the data directory.
+    // Make sure only a single Hah Core process is using the data directory.
     boost::filesystem::path pathLockFile = GetDataDir() / ".lock";
     FILE* file = fopen(pathLockFile.string().c_str(), "a"); // empty lock file; created if it doesn't exist.
     if (file) fclose(file);
@@ -1248,9 +1248,9 @@ bool AppInit2(boost::thread_group& threadGroup, CScheduler& scheduler)
         static boost::interprocess::file_lock lock(pathLockFile.string().c_str());
         // Wait maximum 10 seconds if an old wallet is still running. Avoids lockup during restart
         if (!lock.timed_lock(boost::get_system_time() + boost::posix_time::seconds(10)))
-            return InitError(strprintf(_("Cannot obtain a lock on data directory %s. Mun Core is probably already running."), strDataDir));
+            return InitError(strprintf(_("Cannot obtain a lock on data directory %s. Hah Core is probably already running."), strDataDir));
     } catch(const boost::interprocess::interprocess_exception& e) {
-        return InitError(strprintf(_("Cannot obtain a lock on data directory %s. Mun Core is probably already running.") + " %s.", strDataDir, e.what()));
+        return InitError(strprintf(_("Cannot obtain a lock on data directory %s. Hah Core is probably already running.") + " %s.", strDataDir, e.what()));
     }
 
 #ifndef WIN32
@@ -1713,10 +1713,10 @@ bool AppInit2(boost::thread_group& threadGroup, CScheduler& scheduler)
                              " or address book entries might be missing or incorrect."));
             }
             else if (nLoadWalletRet == DB_TOO_NEW)
-                strErrors << _("Error loading wallet.dat: Wallet requires newer version of Mun Core") << "\n";
+                strErrors << _("Error loading wallet.dat: Wallet requires newer version of Hah Core") << "\n";
             else if (nLoadWalletRet == DB_NEED_REWRITE)
             {
-                strErrors << _("Wallet needed to be rewritten: restart Mun Core to complete") << "\n";
+                strErrors << _("Wallet needed to be rewritten: restart Hah Core to complete") << "\n";
                 LogPrintf("%s", strErrors.str());
                 return InitError(strErrors.str());
             }
@@ -2006,14 +2006,14 @@ bool AppInit2(boost::thread_group& threadGroup, CScheduler& scheduler)
         return InitError(_("Failed to load fulfilled requests cache from") + "\n" + (pathDB / strDBName).string());
     }
 
-    // ********************************************************* Step 11c: update block tip in Mun modules
+    // ********************************************************* Step 11c: update block tip in Hah modules
 
     // force UpdatedBlockTip to initialize nCachedBlockHeight for DS, MN payments and budgets
     // but don't call it directly to prevent triggering of other listeners like zmq etc.
     // GetMainSignals().UpdatedBlockTip(chainActive.Tip());
     pdsNotificationInterface->InitializeCurrentBlockTip();
 
-    // ********************************************************* Step 11d: start mun-ps-<smth> threads
+    // ********************************************************* Step 11d: start hah-ps-<smth> threads
 
     threadGroup.create_thread(boost::bind(&ThreadCheckPrivateSend, boost::ref(*g_connman)));
     if (fMasterNode)

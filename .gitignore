@@ -6,13 +6,13 @@ reset-files.bash
 *.tar.gz
 
 *.exe
-src/mun
-src/mund
-src/mun-cli
-src/mun-tx
-src/test/test_mun
-src/qt/test/test_mun-qt
-src/bench/bench_mun
+src/hah
+src/hahd
+src/hah-cli
+src/hah-tx
+src/test/test_hah
+src/qt/test/test_hah-qt
+src/bench/bench_hah
 
 # autoreconf
 Makefile.in
@@ -35,8 +35,8 @@ config.log
 config.status
 configure
 libtool
-src/config/mun-config.h
-src/config/mun-config.h.in
+src/config/hah-config.h
+src/config/hah-config.h.in
 src/config/stamp-h1
 share/setup.nsi
 share/qt/Info.plist
@@ -62,7 +62,7 @@ libconftest.dylib*
 *.o
 *.o-*
 *.patch
-.mun
+.hah
 *.a
 *.pb.cc
 *.pb.h
@@ -81,12 +81,12 @@ libconftest.dylib*
 # Compilation and Qt preprocessor part
 *.qm
 Makefile
-mun-qt
-mun-Qt.app
+hah-qt
+hah-Qt.app
 
 # Unit-tests
 Makefile.test
-mun-qt_test
+hah-qt_test
 src/test/buildenv.py
 
 # Resources cpp
@@ -100,7 +100,7 @@ build
 *.gcno
 *.gcda
 /*.info
-test_mun.coverage/
+test_hah.coverage/
 total.coverage/
 coverage_percent.txt
 
@@ -123,14 +123,14 @@ share/BitcoindComparisonTool.jar
 .autotools
 /doc/doxygen/
 
-libmunconsensus.pc
-src/qt/mun-qt.bash
+libhahconsensus.pc
+src/qt/hah-qt.bash
 qa/pull-tester/tests-config.sh
 
 #development symlinks
-mun-cli
-mund
-mun-qt
+hah-cli
+hahd
+hah-qt
 make
 
 share/\.settings/language\.settings\.xml

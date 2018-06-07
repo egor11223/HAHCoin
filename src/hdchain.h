@@ -1,7 +1,7 @@
-// Copyright (c) 2014-2017 The Mun Core developers
+// Copyright (c) 2014-2017 The Hah Core developers
 // Distributed under the MIT software license, see the accompanying
-#ifndef MUN_HDCHAIN_H
-#define MUN_HDCHAIN_H
+#ifndef HAH_HDCHAIN_H
+#define HAH_HDCHAIN_H
 
 #include "key.h"
 #include "sync.h"
@@ -149,4 +149,4 @@ public:
     std::string GetKeyPath() const;
 };
 
-#endif // MUN_HDCHAIN_H
+#endif // HAH_HDCHAIN_H

@@ -3,7 +3,7 @@
 
 Darkcoin Core 0.11.1 supports a full implementation of InstantX, Darksend improvements
 and a new version of enforcement compatible with the newer Bitcoin architechure.
-Latest release in 0.11.1.x tree is v0.11.1.26, which is rebranding Darkcoin to Mun.
+Latest release in 0.11.1.x tree is v0.11.1.26, which is rebranding Darkcoin to Hah.
 
 - Fully implemented IX
 - Added support for DSTX messages, as a result DS should be much faster
@@ -26,7 +26,7 @@ Italian, Catalan, Chinese, Danish, Finnish, Swedish, Czech, Turkish and Bavarian
 - update tx types in UI / fix tx decomposition / use wallet db ds flag
 - use wallet db to save ds flag / debug
 - use AvailableCoinsType instead of string in walletmodel
-- New inventory system for IX messaging, providing super fast/low bandwidth IX communication
+- New inventory system for IX messaging, providing super fast/low bandwidth IX comhahication
 
 Thanks to who contributed to this release, at least:
 

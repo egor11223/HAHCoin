@@ -1,4 +1,4 @@
-// Copyright (c) 2014-2017 The Mun Core developers
+// Copyright (c) 2014-2017 The Hah Core developers
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 #include "privatesend.h"
@@ -306,10 +306,10 @@ int CPrivateSend::GetDenominations(const std::vector<CTxOut>& vecTxOut, bool fSi
 bool CPrivateSend::GetDenominationsBits(int nDenom, std::vector<int> &vecBitsRet)
 {
     // ( bit on if present, 4 denominations example )
-    // bit 0 - 100MUN+1
-    // bit 1 - 10MUN+1
-    // bit 2 - 1MUN+1
-    // bit 3 - .1MUN+1
+    // bit 0 - 100HAH+1
+    // bit 1 - 10HAH+1
+    // bit 2 - 1HAH+1
+    // bit 3 - .1HAH+1
 
     int nMaxDenoms = vecStandardDenominations.size();
 
@@ -438,14 +438,14 @@ void CPrivateSend::SyncTransaction(const CTransaction& tx, const CBlock* pblock)
 //TODO: Rename/move to core
 void ThreadCheckPrivateSend(CConnman& connman)
 {
-    if(fLiteMode) return; // disable all Mun specific functionality
+    if(fLiteMode) return; // disable all Hah specific functionality
 
     static bool fOneThread;
     if(fOneThread) return;
     fOneThread = true;
 
     // Make this thread recognisable as the PrivateSend thread
-    RenameThread("mun-ps");
+    RenameThread("hah-ps");
 
     unsigned int nTick = 0;
 

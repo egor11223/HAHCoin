@@ -1,9 +1,9 @@
 # Linearize
 Construct a linear, no-fork, best version of the blockchain.
 
-## Step 0: Install mun_hash
+## Step 0: Install hah_hash
 
-https://github.com/munpay/mun_hash
+https://github.com/hahpay/hah_hash
 
 ## Step 1: Download hash list
 

@@ -1,0 +1,22 @@
+[Unit]
+Description=Hah's distributed currency daemon
+After=network.target
+
+[Service]
+User=hahcore
+Group=hahcore
+
+Type=forking
+PIDFile=/var/lib/hahd/hahd.pid
+ExecStart=/usr/bin/hahd -daemon -pid=/var/lib/hahd/hahd.pid \
+-conf=/etc/hahcore/hah.conf -datadir=/var/lib/hahd -disablewallet
+
+Restart=always
+PrivateTmp=true
+TimeoutStopSec=60s
+TimeoutStartSec=2s
+StartLimitInterval=120s
+StartLimitBurst=5
+
+[Install]
+WantedBy=multi-user.target

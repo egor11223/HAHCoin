@@ -156,7 +156,7 @@ class PosixMmapReadableFile: public RandomAccessFile {
   }
 
   virtual ~PosixMmapReadableFile() {
-    munmap(mmapped_region_, length_);
+    hahmap(mmapped_region_, length_);
     limiter_->Release();
   }
 

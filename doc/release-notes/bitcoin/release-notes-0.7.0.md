@@ -146,7 +146,7 @@ Gavin Andresen
 Giel van Schijndel
 Gregory Maxwell
 Jeff Garzik
-Luke Munjr
+Luke Hahjr
 Matt Corallo
 Michael Ford
 Michael Hendricks

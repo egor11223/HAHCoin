@@ -6,17 +6,17 @@ define(_CLIENT_VERSION_REVISION, 0)
 define(_CLIENT_VERSION_BUILD, 2)
 define(_CLIENT_VERSION_IS_RELEASE, true)
 define(_COPYRIGHT_YEAR, 2018)
-AC_INIT([Mun Core],[_CLIENT_VERSION_MAJOR._CLIENT_VERSION_MINOR._CLIENT_VERSION_REVISION],[https://github.com/munpay/mun/issues],[muncore])
+AC_INIT([Hah Core],[_CLIENT_VERSION_MAJOR._CLIENT_VERSION_MINOR._CLIENT_VERSION_REVISION],[https://github.com/hahpay/hah/issues],[hahcore])
 AC_CONFIG_SRCDIR([src/validation.cpp])
-AC_CONFIG_HEADERS([src/config/mun-config.h])
+AC_CONFIG_HEADERS([src/config/hah-config.h])
 AC_CONFIG_AUX_DIR([build-aux])
 AC_CONFIG_MACRO_DIR([build-aux/m4])
 
 AC_CANONICAL_HOST
 
-AH_TOP([#ifndef MUN_CONFIG_H])
-AH_TOP([#define MUN_CONFIG_H])
-AH_BOTTOM([#endif //MUN_CONFIG_H])
+AH_TOP([#ifndef HAH_CONFIG_H])
+AH_TOP([#define HAH_CONFIG_H])
+AH_BOTTOM([#endif //HAH_CONFIG_H])
 
 dnl faketime breaks configure and is only needed for make. Disable it here.
 unset FAKETIME
@@ -220,7 +220,7 @@ CPPFLAGS="$CPPFLAGS -DHAVE_BUILD_INFO -D__STDC_FORMAT_MACROS"
 
 AC_ARG_WITH([utils],
   [AS_HELP_STRING([--with-utils],
-  [build mun-cli mun-tx (default=yes)])],
+  [build hah-cli hah-tx (default=yes)])],
   [build_bitcoin_utils=$withval],
   [build_bitcoin_utils=yes])
 
@@ -232,7 +232,7 @@ AC_ARG_WITH([libs],
 
 AC_ARG_WITH([daemon],
   [AS_HELP_STRING([--with-daemon],
-  [build mun daemon (default=yes)])],
+  [build hah daemon (default=yes)])],
   [build_bitcoind=$withval],
   [build_bitcoind=yes])
 
@@ -419,7 +419,7 @@ AC_C_BIGENDIAN
 dnl Check for pthread compile/link requirements
 AX_PTHREAD
 
-# The following macro will add the necessary defines to mun-config.h, but
+# The following macro will add the necessary defines to hah-config.h, but
 # they also need to be passed down to any subprojects. Pull the results out of
 # the cache and add them to CPPFLAGS.
 AC_SYS_LARGEFILE
@@ -878,11 +878,11 @@ LIBS="$LIBS_TEMP"
 
 BITCOIN_QT_PATH_PROGS([PROTOC], [protoc],$protoc_bin_path)
 
-AC_MSG_CHECKING([whether to build mund])
+AC_MSG_CHECKING([whether to build hahd])
 AM_CONDITIONAL([BUILD_BITCOIND], [test x$build_bitcoind = xyes])
 AC_MSG_RESULT($build_bitcoind)
 
-AC_MSG_CHECKING([whether to build utils (mun-cli mun-tx)])
+AC_MSG_CHECKING([whether to build utils (hah-cli hah-tx)])
 AM_CONDITIONAL([BUILD_BITCOIN_UTILS], [test x$build_bitcoin_utils = xyes])
 AC_MSG_RESULT($build_bitcoin_utils)
 
@@ -890,7 +890,7 @@ AC_MSG_CHECKING([whether to build libraries])
 AM_CONDITIONAL([BUILD_BITCOIN_LIBS], [test x$build_bitcoin_libs = xyes])
 if test x$build_bitcoin_libs = xyes; then
   AC_DEFINE(HAVE_CONSENSUS_LIB, 1, [Define this symbol if the consensus lib has been built])
-  AC_CONFIG_FILES([libmunconsensus.pc:libmunconsensus.pc.in])
+  AC_CONFIG_FILES([libhahconsensus.pc:libhahconsensus.pc.in])
 fi
 AC_MSG_RESULT($build_bitcoin_libs)
 
@@ -983,7 +983,7 @@ if test x$bitcoin_enable_qt != xno; then
     AC_MSG_WARN("xgettext is required to update qt translations")
   fi
 
-  AC_MSG_CHECKING([whether to build test_mun-qt])
+  AC_MSG_CHECKING([whether to build test_hah-qt])
   if test x$use_gui_tests$bitcoin_enable_qt_test = xyesyes; then
     AC_MSG_RESULT([yes])
     BUILD_TEST_QT="yes"
@@ -994,7 +994,7 @@ fi
 
 AM_CONDITIONAL([ENABLE_ZMQ], [test "x$use_zmq" = "xyes"])
 
-AC_MSG_CHECKING([whether to build test_mun])
+AC_MSG_CHECKING([whether to build test_hah])
 if test x$use_tests = xyes; then
   AC_MSG_RESULT([yes])
   BUILD_TEST="yes"

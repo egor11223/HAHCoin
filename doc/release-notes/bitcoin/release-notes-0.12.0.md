@@ -221,7 +221,7 @@ priority delta will be ignored and only the fee metric will be effective.
 This internal automatic prioritization handling is being considered for removal
 entirely in Bitcoin Core 0.13, and it is at this time undecided whether the
 more accurate priority calculation for chained unconfirmed transactions will be
-restored. Community direction on this topic is particularly requested to help
+restored. Comhahity direction on this topic is particularly requested to help
 set project priorities.
 
 Automatically use Tor hidden services
@@ -841,7 +841,7 @@ Thanks to everyone who directly contributed to this release:
 - kazcw
 - Kevin Cooper
 - lpescher
-- Luke Munjr
+- Luke Hahjr
 - MarcoFalke
 - Mark Friedenbach
 - Matt

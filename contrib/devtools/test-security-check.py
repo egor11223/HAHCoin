@@ -21,7 +21,7 @@ def write_testcode(filename):
 def call_security_check(cc, source, executable, options):
     subprocess.check_call([cc,source,'-o',executable] + options)
     p = subprocess.Popen(['./security-check.py',executable], stdout=subprocess.PIPE, stderr=subprocess.PIPE, stdin=subprocess.PIPE)
-    (stdout, stderr) = p.communicate()
+    (stdout, stderr) = p.comhahicate()
     return (p.returncode, stdout.rstrip())
 
 class TestSecurityChecks(unittest.TestCase):

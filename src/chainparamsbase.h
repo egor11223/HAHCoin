@@ -9,8 +9,8 @@
 #include <vector>
 
 /**
- * CBaseChainParams defines the base parameters (shared between mun-cli and mund)
- * of a given instance of the Mun system.
+ * CBaseChainParams defines the base parameters (shared between hah-cli and hahd)
+ * of a given instance of the Hah system.
  */
 class CBaseChainParams
 {

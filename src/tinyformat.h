@@ -625,7 +625,7 @@ void FormatIterator::accept(const T& value)
         // The following are special cases where there's no direct
         // correspondence between stream formatting and the printf() behaviour.
         // Instead, we simulate the behaviour crudely by formatting into a
-        // temporary string stream and munging the resulting string.
+        // temporary string stream and hahging the resulting string.
         std::ostringstream tmpStream;
         tmpStream.copyfmt(m_out);
         if(m_extraFlags & Flag_SpacePadPositive)

@@ -1,16 +1,16 @@
-Mun Core version 0.1.0.3
+Hah Core version 0.1.0.3
 ========================
 
 Release is now available from:
 
-  <https://www.mun.org/downloads/#wallets>
+  <https://www.hah.org/downloads/#wallets>
 
 This is a new minor version release, bringing various bugfixes and other
 improvements.
 
 Please report bugs using the issue tracker at github:
 
-  <https://github.com/munpay/mun/issues>
+  <https://github.com/hahpay/hah/issues>
 
 
 Upgrading and downgrading
@@ -21,8 +21,8 @@ How to Upgrade
 
 If you are running an older version, shut it down. Wait until it has completely
 shut down (which might take a few minutes for older versions), then run the
-installer (on Windows) or just copy over /Applications/Mun-Qt (on Mac) or
-mund/mun-qt (on Linux).
+installer (on Windows) or just copy over /Applications/Hah-Qt (on Mac) or
+hahd/hah-qt (on Linux).
 
 Downgrade warning
 -----------------

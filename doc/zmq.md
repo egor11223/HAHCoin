@@ -1,12 +1,12 @@
 # Block and Transaction Broadcasting With ZeroMQ
 
 [ZeroMQ](http://zeromq.org/) is a lightweight wrapper around TCP
-connections, inter-process communication, and shared-memory,
+connections, inter-process comhahication, and shared-memory,
 providing various message-oriented semantics such as publish/subscribe,
 request/reply, and push/pull.
 
-The Mun Core daemon can be configured to act as a trusted "border
-router", implementing the mun wire protocol and relay, making
+The Hah Core daemon can be configured to act as a trusted "border
+router", implementing the hah wire protocol and relay, making
 consensus decisions, maintaining the local blockchain database,
 broadcasting locally generated transactions into the network, and
 providing a queryable RPC interface to interact on a polled basis for
@@ -33,7 +33,7 @@ buffering or reassembly.
 
 ## Prerequisites
 
-The ZeroMQ feature in Mun Core requires ZeroMQ API version 4.x or
+The ZeroMQ feature in Hah Core requires ZeroMQ API version 4.x or
 newer. Typically, it is packaged by distributions as something like
 *libzmq3-dev*. The C++ wrapper for ZeroMQ is *not* needed.
 
@@ -68,8 +68,8 @@ address. The same address can be used in more than one notification.
 
 For instance:
 
-    $ mund -zmqpubhashtx=tcp://127.0.0.1:28332 \
-               -zmqpubrawtx=ipc:///tmp/mund.tx.raw
+    $ hahd -zmqpubhashtx=tcp://127.0.0.1:28332 \
+               -zmqpubrawtx=ipc:///tmp/hahd.tx.raw
 
 Each PUB notification has a topic and body, where the header
 corresponds to the notification type. For instance, for the
@@ -77,7 +77,7 @@ notification `-zmqpubhashtx` the topic is `hashtx` (no null
 terminator) and the body is the hexadecimal transaction hash (32
 bytes).
 
-These options can also be provided in mun.conf.
+These options can also be provided in hah.conf.
 
 ZeroMQ endpoint specifiers for TCP (and others) are documented in the
 [ZeroMQ API](http://api.zeromq.org/4-0:_start).
@@ -89,9 +89,9 @@ arriving. Please see `contrib/zmq/zmq_sub.py` for a working example.
 
 ## Remarks
 
-From the perspective of mund, the ZeroMQ socket is write-only; PUB
+From the perspective of hahd, the ZeroMQ socket is write-only; PUB
 sockets don't even have a read function. Thus, there is no state
-introduced into mund directly. Furthermore, no information is
+introduced into hahd directly. Furthermore, no information is
 broadcast that wasn't already received from the public P2P network.
 
 No authentication or authorization is done on connecting clients; it
@@ -103,6 +103,6 @@ and just the tip will be notified. It is up to the subscriber to
 retrieve the chain from the last known block to the new tip.
 
 There are several possibilities that ZMQ notification can get lost
-during transmission depending on the communication type your are
-using. Mund appends an up-counting sequence number to each
+during transmission depending on the comhahication type your are
+using. Hahd appends an up-counting sequence number to each
 notification which allows listeners to detect lost notifications.

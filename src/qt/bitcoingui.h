@@ -6,7 +6,7 @@
 #define BITCOIN_QT_BITCOINGUI_H
 
 #if defined(HAVE_CONFIG_H)
-#include "config/mun-config.h"
+#include "config/hah-config.h"
 #endif
 
 #include "amount.h"
@@ -42,7 +42,7 @@ class QProgressDialog;
 QT_END_NAMESPACE
 
 /**
-  Bitcoin GUI main class. This class represents the main window of the Bitcoin UI. It communicates with both the client and
+  Bitcoin GUI main class. This class represents the main window of the Bitcoin UI. It comhahicates with both the client and
   wallet models to give the user an up-to-date view of the current core state.
 */
 class BitcoinGUI : public QMainWindow
@@ -57,7 +57,7 @@ public:
     ~BitcoinGUI();
 
     /** Set the client model.
-        The client model represents the part of the core that communicates with the P2P network, and is wallet-agnostic.
+        The client model represents the part of the core that comhahicates with the P2P network, and is wallet-agnostic.
     */
     void setClientModel(ClientModel *clientModel);
 
@@ -246,7 +246,7 @@ private Q_SLOTS:
     void showPeers();
     void showRepair();
 
-    /** Open external (default) editor with mun.conf */
+    /** Open external (default) editor with hah.conf */
     void showConfEditor();
     /** Open external (default) editor with masternode.conf */
     void showMNConfEditor();

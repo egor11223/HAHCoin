@@ -21,8 +21,8 @@
  * OTHER DEALINGS IN THE SOFTWARE.
  */
 
-#ifndef MUN_BIP39_H
-#define MUN_BIP39_H
+#ifndef HAH_BIP39_H
+#define HAH_BIP39_H
 
 #include "support/allocators/secure.h"
 
